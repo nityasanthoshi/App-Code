@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebApp with Admin, Borrower, Lender</title>
+    <style>
+        /* Basic CSS styles for the UI */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to WebApp</h1>
+
+        <!-- Admin UI -->
+        <div id="adminUI" style="display: none;">
+            <h2>Admin Panel</h2>
+            <button onclick="approveLoan()">Approve Loan</button>
+            <!-- Add admin-specific functionality here -->
+        </div>
+
+        <!-- Borrower UI -->
+        <div id="borrowerUI" style="display: none;">
+            <h2>Borrower Dashboard</h2>
+            <button onclick="applyForLoan()">Apply for Loan</button>
+            <!-- Add borrower-specific functionality here -->
+        </div>
+
+        <!-- Lender UI -->
+        <div id="lenderUI" style="display: none;">
+            <h2>Lender Dashboard</h2>
+            <button onclick="viewLoanPortfolio()">View Loan Portfolio</button>
+            <!-- Add lender-specific functionality here -->
+        </div>
+    </div>
+
+    <script>
+        // Functions for role-specific actions
+        function approveLoan() {
+            alert('Loan approved by admin.');
+        }
+
+        function applyForLoan() {
+            alert('Loan application submitted by borrower.');
+        }
+
+        function viewLoanPortfolio() {
+            alert('Viewing loan portfolio as a lender.');
+        }
+
+        // Function to switch between roles
+        function switchRole(role) {
+            document.getElementById('adminUI').style.display = 'none';
+            document.getElementById('borrowerUI').style.display = 'none';
+            document.getElementById('lenderUI').style.display = 'none';
+
+            document.getElementById(`${role}UI`).style.display = 'block';
+        }
+    </script>
+    
+    <div>
+        <h2>Switch Role:</h2>
+        <button onclick="switchRole('admin')">Admin</button>
+        <button onclick="switchRole('borrower')">Borrower</button>
+        <button onclick="switchRole('lender')">Lender</button>
+    </div>
+</body>
+</html>
